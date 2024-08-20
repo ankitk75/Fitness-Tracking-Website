@@ -1,0 +1,27 @@
+{% extends 'accounts/base.html' %}
+{% block heading %}
+Welcome 
+to 
+<br>
+Servify
+<br>
+<br>
+Log in to continue
+{% endblock heading %}
+{% block content %}
+<form class="p-4 p-md-5 border rounded-3 bg-light align-items-center" method="POST">
+    {% csrf_token %}
+    <div class="form-floating mb-3">
+        <input type="email" name="username" class="form-control" id="floatingInput">
+        <label for="floatingInput">Email address</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="password" name="password" class="form-control" id="floatingPassword">
+        <label for="floatingPassword">Password</label>
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign In</button>
+    <hr class="my-4">
+    <small class="text-muted">Don't have an account? <a href="{% url 'register-customer' %}">Sign Up</a></small><br>
+    <small class="text-muted">By clicking Sign In, you agree to the terms of use.</small>
+</form>
+{% endblock content %}
